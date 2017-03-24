@@ -4,7 +4,13 @@ module SocialShares
       response = RestClient.get(url, params: {
         fields: 'share'
       })
-      JSON.parse(response)["shares"]["share_count"] || 0
+      json_response = JSON.parse(response)
+
+      if json_response['share']
+        json_response['share']['share_count'] || 0
+      else
+        0
+      end
     end
 
   private
