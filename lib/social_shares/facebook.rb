@@ -8,7 +8,7 @@ module SocialShares
     private
 
     def url
-      "https://graph.facebook.com/v2.8/#{checked_url}&ENV["facebook_token"]"
+      "https://graph.facebook.com/v2.8/#{checked_url}&<%= ENV["facebook_token"] %>"
     end
   end
 end
