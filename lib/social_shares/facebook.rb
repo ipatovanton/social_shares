@@ -4,7 +4,7 @@ module SocialShares
 
     def shares!
       response = get(URL, params: {
-        access_token: <%= ENV["facebook_token"] %>,
+        access_token: ENV["facebook_token"],
         id: checked_url,
         fields: 'share'
       })
