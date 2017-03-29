@@ -16,7 +16,7 @@ module SocialShares
   private
 
     def url
-      "http://graph.facebook.com/?id=#{checked_url}"
+      "http://graph.facebook.com/?id=#{checked_url}?access_token=#{ENV["facebook_token"]}"
     end
   end
 end
