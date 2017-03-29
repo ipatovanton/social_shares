@@ -5,7 +5,7 @@ module SocialShares
     def shares!
       response = get(URL, params: {
         id: checked_url,
-        access_token: facebook_token,
+        access_token: ENV["pusher_app_id"],
         fields: 'share'
       })
       json_response = JSON.parse(response)
@@ -16,10 +16,5 @@ module SocialShares
         0
       end
     end
-    
-    private
-      def facebook_token
-        ENV["facebook_token"]
-      end
   end
 end
