@@ -1,7 +1,11 @@
 module SocialShares
   class Facebook < Base
+    URL = 'http://graph.facebook.com/v2.7/'
+
     def shares!
-      response = RestClient.get(url, params: {
+      response = get(URL, params: {
+        id: checked_url,
+        access_token: facebook_token,
         fields: 'share'
       })
       json_response = JSON.parse(response)
@@ -12,15 +16,10 @@ module SocialShares
         0
       end
     end
-
-  private
-
     
-    def facebook_token
-      ENV["facebook_token"]
-    end
-    def url
-      "http://graph.facebook.com/?id=#{checked_url}?access_token=#{facebook_token}"
-    end
+    private
+      def facebook_token
+        ENV["facebook_token"]
+      end
   end
 end
