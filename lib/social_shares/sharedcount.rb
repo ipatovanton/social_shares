@@ -2,7 +2,13 @@ module SocialShares
   class Sharedcount < Base
     def shares!
       response = RestClient.get(url)
-      JSON.parse(response)["Facebook"]["share_count"] || 0
+      json_response = JSON.parse(response)
+
+      if json_response['Facebook']
+        json_response['Facebook']['share_count'] || 0
+      else
+        0
+      end
     end
 
   private
