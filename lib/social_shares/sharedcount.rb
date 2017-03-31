@@ -5,7 +5,7 @@ module SocialShares
       json_response = JSON.parse(response)
 
       if json_response['Facebook']
-        json_response['Facebook']['share_count'] || 0
+        json_response['Facebook']['share_count']
       else
         0
       end
