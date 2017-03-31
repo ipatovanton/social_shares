@@ -8,7 +8,7 @@ module SocialShares
   private
 
     def url
-      "http://foo.com/?url=#{checked_url}"  https://free.sharedcount.com/?url=#{checked_url}&apikey=#{socialshared_api_key}
+      "https://free.sharedcount.com/?url=#{checked_url}&apikey=#{socialshared_api_key}"
     end
   end
 end
