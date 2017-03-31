@@ -4,7 +4,7 @@ module SocialShares
       response = RestClient.get(url)
       json_response = JSON.parse(response)
 
-      if json_response['Facebook']
+      if json_response['Facebook']['share_count']
         json_response['Facebook']['share_count'] || 0
       else
         0
