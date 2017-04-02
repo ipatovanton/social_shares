@@ -3,7 +3,7 @@ module SocialShares
     def shares!
       response = RestClient.get(url)
       data = JSON.parse(response)
-      data['Facebook'] && data['Facebook']["share_count"] || 0
+      data.dig('Facebook', 'share_count').to_i
     end
 
   private
