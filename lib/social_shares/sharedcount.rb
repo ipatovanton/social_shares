@@ -5,7 +5,7 @@ module SocialShares
       
       data = JSON.parse(response)
       
-      data['Facebook'] && data['Facebook']["share_count"] || 0
+      data['Facebook'].is_a?(Hash) && data['Facebook']["share_count"] || 0
     end
 
   private
