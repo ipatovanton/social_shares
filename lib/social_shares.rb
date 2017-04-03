@@ -38,7 +38,7 @@ module SocialShares
       :stumbleupon,
       :weibo,
       :buffer,
-      :sharedcount,
+      :sharedcount
     ]
 
     def supported_networks
