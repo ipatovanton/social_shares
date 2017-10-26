@@ -3,10 +3,9 @@ module SocialShares
     URL = 'http://graph.facebook.com/v2.7/'
 
     def shares!
-      response = get(URL, params: {
+      response = get(access_token: Rails.application.secrets.facebook_share_token, URL, params: {
         id: checked_url,
-        fields: 'share',
-        access_token: Rails.application.secrets.facebook_share_token
+        fields: 'share'
       })
       json_response = JSON.parse(response)
 
