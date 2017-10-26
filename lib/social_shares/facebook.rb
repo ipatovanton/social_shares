@@ -5,7 +5,8 @@ module SocialShares
     def shares!
       response = get(URL, params: {
         id: checked_url,
-        fields: 'share'
+        fields: 'share',
+        access_token: Rails.application.secrets.socialshared_api_key
       })
       json_response = JSON.parse(response)
 
