@@ -11,7 +11,11 @@ module SocialShares
   private
 
     def url
-      "https://free.sharedcount.com/?url=#{checked_url}&apikey=#{Rails.application.credentials.socialshared_api_key}"
+      if Rails.env.development?
+        "https://free.sharedcount.com/?url=#{checked_url}&apikey=#{ENV['SOCIALSHARED_API_KEY']}"
+      else
+        "https://free.sharedcount.com/?url=#{checked_url}&apikey=#{Rails.application.credentials.socialshared_api_key}"
+      end
     end
   end
 end
