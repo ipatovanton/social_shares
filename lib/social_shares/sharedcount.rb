@@ -13,6 +13,5 @@ module SocialShares
     def url
       "https://free.sharedcount.com/?url=#{checked_url}&apikey=#{Rails.application.credentials.socialshared_api_key}"
     end
-    end
   end
 end
